@@ -23,7 +23,7 @@ const Player = (symbol, level, name) => {
 
     const getLevel = () => {
         if(level == 'easy'){
-            level = mode.easy
+            level = Mode.selectedDifficulty
         }
     };
 
@@ -33,6 +33,24 @@ const Player = (symbol, level, name) => {
 
 }
 
+/**
+ * Sets The difficulty level of the Ai
+ */
+const Mode = ((difficulty) =>{ 
+    let _easy, _medium, _hard;
+    let selectedDifficulty
+    const getEasy = () => _easy;
+    const getMedium = () => _medium;
+    const getHard = () => _hard;
+    if(difficulty == _hard){
+        selectedDifficulty = getHard;
+    } else if( difficulty == _medium) {
+        selectedDifficulty = getMedium
+    }else{
+        selectedDifficulty = getEasy
+    }
+    return {selectedDifficulty}
+})();
 
 
 
